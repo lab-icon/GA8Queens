@@ -3,13 +3,17 @@ class Queen {
   PImage queen;
   int W, H; 
 
-  Queen(int boardSize) {
+  Queen() {
     queen = loadImage("queen.png");
-    W = BOARD_WIDTH / boardSize;
-    H = BOARD_HEIGHT / boardSize;
+    W = BOARD_WIDTH / BOARD_SIZE;
+    H = BOARD_HEIGHT / BOARD_SIZE;
     dna = new DNA();
   }
-
+  
+  Queen(DNA dna) {
+    this();
+    this.dna = dna;    
+  }
 
   void draw() {
     text("DNA: " + dna.toString(), BOARD_WIDTH+10, BOARD_HEIGHT-40);
@@ -19,5 +23,9 @@ class Queen {
       rect(i * W, (dna.genes[i]-1) * H, W, H);
       image(queen, i * W, (dna.genes[i]-1) * H, W, H);
     }
+  }
+  
+  float getFitness() {
+    return dna.fitness();
   }
 }
