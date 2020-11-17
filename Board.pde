@@ -1,10 +1,10 @@
 class Board {
-  int size = 8;
   int BLOCKX, BLOCKY;
-
-  Board() {
-    BLOCKX = width / 8;
-    BLOCKY = height / 8;
+  int size;
+  Board(int boardSize) {
+    BLOCKX = width / boardSize;
+    BLOCKY = height / boardSize;
+    size = boardSize;
   }
 
   void draw() {
