@@ -2,8 +2,8 @@ class Board {
   int BLOCKX, BLOCKY;
   int size;
   Board(int boardSize) {
-    BLOCKX = width / boardSize;
-    BLOCKY = height / boardSize;
+    BLOCKX = BOARD_WIDTH / boardSize;
+    BLOCKY = BOARD_HEIGHT / boardSize;
     size = boardSize;
   }
 
@@ -15,7 +15,7 @@ class Board {
         } else {
           fill(0, 0, 0); // black
         }
-        rect(i * BLOCKX, j * BLOCKY, (i + 1) * BLOCKX, (j + 1) * BLOCKY);
+        rect(i * BLOCKX, j * BLOCKY, BLOCKX, BLOCKY);
       }
     }
   }

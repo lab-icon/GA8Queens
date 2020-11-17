@@ -9,8 +9,14 @@ class DNA {
     for (int i = 0; i < genes.length; i++) {
       genes[i] = (int) Math.floor(random(1, 9));
     }
-  }
 
+    // solução com 7 erros
+    //genes = new int[]{4, 6, 7, 1, 8, 8, 7, 4};
+
+    // solução com 0 erros
+    //genes = new int[]{1, 6, 2, 5, 7, 4, 0, 3};
+  }
+  
   //Calcular função de fitness.
   float fitness() {
     int clashes = 0;
@@ -22,16 +28,17 @@ class DNA {
 
     // calculando as colisões na diagonal
     for (int i = 0; i< genes.length; i++) {
-      for (int j = 0; j< genes.length; j++)
+      for (int j = i; j< genes.length; j++)
         if ( i != j) {
           int dx = abs(i-j);
           int dy = abs(genes[i] - genes[j]);
-          if (dx == dy)
+          if (dx == dy) {
             clashes += 1;
+          }
         }
     }
 
-    return N_CLASHES - clashes;
+    return (N_CLASHES - clashes)/(N_CLASHES*1.0);
   }
 
   //Crossover
@@ -57,6 +64,18 @@ class DNA {
         genes[i] = (char) random(32, 128);
       }
     }
+  }
+
+  String toString() {
+    String text = "[";
+
+    for (int i = 0; i < genes.length; i++) {
+      text += genes[i] + ", ";
+    }
+    
+    text+= "]";
+
+    return text;
   }
 
   int countDistinct(int[] arr) 
