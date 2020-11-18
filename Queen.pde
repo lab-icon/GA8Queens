@@ -19,7 +19,7 @@ class Queen {
     text("DNA: " + dna.toString(), BOARD_WIDTH+10, BOARD_HEIGHT-40);
     text("Fitness: " + dna.fitness(), BOARD_WIDTH+10, BOARD_HEIGHT-20);
     for (int i = 0; i< dna.genes.length; i++) {
-      fill(255,244,26,120);
+      fill(200,200,26,200);
       rect(i * W, (dna.genes[i]-1) * H, W, H);
       image(queen, i * W, (dna.genes[i]-1) * H, W, H);
     }

@@ -13,10 +13,10 @@ class DNA {
     // solução com 7 erros
     //genes = new int[]{4, 6, 7, 1, 8, 8, 7, 4};
 
-     //solução com 0 erros
+    //solução com 0 erros
     //genes = new int[]{1, 6, 2, 5, 7, 4, 0, 3};
   }
-  
+
   //Calcular função de fitness.
   float fitness() {
     int clashes = 0;
@@ -37,18 +37,24 @@ class DNA {
           }
         }
     }
-    
+
     return 1.0/(1+clashes);
   }
 
   //Crossover
   DNA crossover(DNA partner) {
     DNA child = new DNA();
-    //Ponto de recombinação aletório
-    //int midpoint = int(random(genes.length));
-
-    //Ponto de recombinação no meio
-    int midpoint = int(genes.length/2);
+    int midpoint = 0;
+    switch(CROSSOVER) {
+    case 1:
+      //Ponto de recombinação aletório
+      midpoint = int(random(genes.length));
+      break;
+    case 2:
+      //Ponto de recombinação no meio
+      midpoint = int(genes.length/2);
+      break;
+    }
 
     for (int i = 0; i < genes.length; i++) {
       if (i < midpoint) child.genes[i] = genes[i];
@@ -72,7 +78,7 @@ class DNA {
     for (int i = 0; i < genes.length; i++) {
       text += genes[i] + ", ";
     }
-    
+
     text+= "]";
 
     return text;
