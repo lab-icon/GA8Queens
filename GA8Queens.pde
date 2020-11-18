@@ -1,17 +1,18 @@
+//ALTERE OS VALORES AQUI:
+//Tamanho da população:
+final int POP_SIZE = 10;
+//Taxa de Mutação:
+final float MUTATION_RATE = 0.00;
+//Tipo de Crossover (1 = aleatório, 2 = 50/50);
+final int CROSSOVER = 1;
+
+
 final int N_QUEENS = 8;
 final int N_SOLUTIONS = 92;
 final int N_CLASHES = 28;
 final int BOARD_SIZE = 8;
 final int BOARD_WIDTH = 400;
 final int BOARD_HEIGHT = 400;
-
-//ALTERE OS VALORES AQUI:
-//Tamanho da população:
-final int POP_SIZE = 128;
-//Taxa de Mutação:
-final float MUTATION_RATE = 0.05;
-//Tipo de Crossover (1 = aleatório, 2 = 50/50);
-final int CROSSOVER = 1;
 
 Board b;
 Queen q;
