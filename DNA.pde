@@ -37,18 +37,18 @@ class DNA {
           }
         }
     }
-
-    return (N_CLASHES - clashes)/(N_CLASHES*1.0);
+    
+    return 1.0/(1+clashes);
   }
 
   //Crossover
   DNA crossover(DNA partner) {
     DNA child = new DNA();
     //Ponto de recombinação aletório
-    int midpoint = int(random(genes.length));
+    //int midpoint = int(random(genes.length));
 
     //Ponto de recombinação no meio
-    //int midpoint = int(genes.length/2);
+    int midpoint = int(genes.length/2);
 
     for (int i = 0; i < genes.length; i++) {
       if (i < midpoint) child.genes[i] = genes[i];

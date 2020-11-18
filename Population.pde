@@ -27,12 +27,12 @@ class Population {
 
   void createSelectionPool() {
     selectionPool.clear();
-
+    float bestFitness = getBestFitness();
+    
     for (int i=0; i<solutions.size(); i++) {
       
       float fitness = solutions.get(i).getFitness();
       int qtd = (int) (fitness *100);
-
       for (int j=0; j<qtd; j++) {
         selectionPool.add(solutions.get(i));
       }
